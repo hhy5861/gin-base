@@ -1,0 +1,52 @@
+system:
+  contextPath: /gin-base
+  host: 127.0.0.1
+  port: 8080
+  mode: debug # debug|test|release
+  grpcEnabled: true
+
+remotes:
+  debug: true
+  remotes:
+    kong:
+      - http://kong-admin.svc.local
+
+logger:
+  savePath: /data/logs/golang/gin-base
+  fileName: app.log
+  stdOut: file #stdout type (file|logstash|redis|kafka)
+  debug: true
+  redisHost: 127.0.0.1
+  redisPort: 30012
+  redisDB: 10
+
+mysql:
+  dialect: mysql
+  host: 127.0.0.1
+  port: 30012
+  dbname: gin-base
+  user: root
+  password: blockshine@123
+  charset: utf8
+  parseTime: true
+  maxIdle: 0
+  maxOpen: 200
+  debug: false
+
+redis:
+  host: 127.0.0.1
+  port: 30079
+  db: 0
+  password: ""
+  maxIdle: 200
+  maxActive: 100
+  idleTimeout: 5
+  connectTimeout: 300
+  readTimeout: 3000
+  writeTimeout: 1800
+  defaultExpiration: 3600
+
+security:
+  jwt:
+    secret: d836ac9e6b963206b74fdd20d9cdd6f6
+    expired: 1800 #second

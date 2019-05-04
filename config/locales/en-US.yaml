@@ -1,0 +1,8 @@
+- id: "-100000"
+  translation: "The parameter is wrong, please check the Api documentation."
+
+- id: "100000"
+  translation: "Login failed."
+
+- id: "100010"
+  translation: "get list failed."

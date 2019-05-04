@@ -1,0 +1,118 @@
+hash: 8ea743e078f65350894426c81c046c64944a9f513e89e099701c8bb8fad6296c
+updated: 2019-02-25T23:57:55.772397+08:00
+imports:
+- name: github.com/bshuster-repo/logrus-logstash-hook
+  version: 1e961e8e173c48bdddbf90e4fc4df8eaf8a7e918
+- name: github.com/fatih/structs
+  version: 878a968ab22548362a09bdb3322f98b00f470d46
+- name: github.com/garyburd/redigo
+  version: 569eae59ada904ea8db7a225c2b47165af08735a
+  subpackages:
+  - internal
+  - redis
+- name: github.com/gin-contrib/sse
+  version: a7658810eb745c2f22927282dea478278103a897
+- name: github.com/gin-gonic/gin
+  version: b869fe1415e4b9eb52f247441830d502aece2d4d
+  subpackages:
+  - binding
+  - json
+  - render
+- name: github.com/go-playground/locales
+  version: f63010822830b6fe52288ee52d5a1151088ce039
+  subpackages:
+  - currency
+- name: github.com/go-playground/universal-translator
+  version: 71201497bace774495daed26a3874fd339e0b538
+- name: github.com/go-sql-driver/mysql
+  version: 972a708cf97995463843c08c8585b26997daf0e1
+- name: github.com/golang/protobuf
+  version: c823c79ea1570fb5ff454033735a8e68575d1d0f
+  subpackages:
+  - proto
+- name: github.com/gomodule/redigo
+  version: 4b40ddb4586bdd2805bcfba564ed0dfa28ec3886
+  subpackages:
+  - redis
+- name: github.com/jinzhu/gorm
+  version: 472c70caa40267cb89fd8facb07fe6454b578626
+  subpackages:
+  - dialects/mysql
+- name: github.com/jinzhu/inflection
+  version: 04140366298a54a039076d798123ffa108fff46c
+- name: github.com/json-iterator/go
+  version: 5bc93205020f6311d7e4a34f82c5616a18ec35e5
+- name: github.com/konsorten/go-windows-terminal-sequences
+  version: 5c8c8bd35d3832f5d134ae1e1e375b69a4d25242
+- name: github.com/leodido/go-urn
+  version: a67a23e1c1af3c66528573bb86a87246477277c1
+- name: github.com/mailru/easyjson
+  version: 6243d8e04c3f819e79757e8bc3faa15c3cb27003
+  subpackages:
+  - buffer
+  - jlexer
+  - jwriter
+- name: github.com/mattn/go-isatty
+  version: a6dda38a851a575e6799957cdd53ffe0b3fdd90f
+- name: github.com/modern-go/concurrent
+  version: bacd9c7ef1dd9b15be4a9909b8ac7a4e313eec94
+- name: github.com/modern-go/reflect2
+  version: 94122c33edd36123c84d5368cfb2b69df93a0ec8
+- name: github.com/moul/http2curl
+  version: faeffb3553568c6ecaa9c103c09dea941ca9c570
+- name: github.com/olivere/elastic
+  version: f82cf7c66881f3f18d0354a68086e9aa2f9a48d1
+  subpackages:
+  - config
+  - uritemplates
+- name: github.com/parnurzeal/gorequest
+  version: b0604454e3c35c21d4c86e4771dc1e24c896cdd3
+- name: github.com/pkg/errors
+  version: 856c240a51a2bf8fb8269ea7f3f9b046aadde36e
+- name: github.com/satori/go.uuid
+  version: b2ce2384e17bbe0c6d34077efa39dbab3e09123b
+- name: github.com/sirupsen/logrus
+  version: 4f5fd631f16452fbd023813c1eb7dbd67130cb0c
+- name: github.com/streadway/amqp
+  version: f16568b23ee61c7d911a5b9d306b8fe2092c33b7
+- name: github.com/ugorji/go
+  version: e444a5086c436778cf9281a7059a3d58b9e17935
+  subpackages:
+  - codec
+- name: github.com/urfave/cli
+  version: cfb38830724cc34fedffe9a2a29fb54fa9169cd1
+- name: golang.org/x/crypto
+  version: 7f87c0fbb88b590338857bcb720678c2583d4dea
+  subpackages:
+  - ssh/terminal
+- name: golang.org/x/net
+  version: fe579d43d83210096a79b46dcca0e3721058393a
+  subpackages:
+  - publicsuffix
+- name: golang.org/x/sys
+  version: cc5685c2db1239775905f3911f0067c0fa74762f
+  subpackages:
+  - unix
+  - windows
+- name: google.golang.org/appengine
+  version: 54a98f90d1c46b7731eb8fb305d2a321c30ef610
+  subpackages:
+  - cloudsql
+- name: gopkg.fashionipo.com/go-common
+  version: 5755454618c37e016285e7b80143b86310dfcba4
+  subpackages:
+  - client
+  - common
+  - gin-controller
+  - gin-validator
+  - logger
+  - mysql
+- name: gopkg.in/go-playground/validator.v8
+  version: 5f1438d3fca68893a817e4a66806cea46a9e4ebf
+- name: gopkg.in/go-playground/validator.v9
+  version: b199fa0642d29caca62b6a99d65cc981ba5edc3b
+- name: gopkg.in/sohlich/elogrus.v3
+  version: 1fa29e2f2009c129693c7079e5f6361bfbd34080
+- name: gopkg.in/yaml.v2
+  version: 51d6538a90f86fe93ac480b35f37b2be17fef232
+testImports: []

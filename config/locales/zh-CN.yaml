@@ -1,0 +1,8 @@
+- id: "-100000"
+  translation: "参数错误，请查看Api文档."
+
+- id: "100000"
+  translation: "登录失败."
+
+- id: "100010"
+  translation: "获取列表失败."

@@ -1,0 +1,42 @@
+syntax = "proto3";
+
+option java_multiple_files = true;
+option java_package = "com.hhy5861.account";
+option java_outer_classname = "AccountProto";
+
+package account;
+
+service Account {
+    rpc Login (LoginRequest) returns (Response) {
+    }
+
+}
+
+
+message LoginRequest {
+    string username = 1;
+    string password = 2;
+}
+
+message Response {
+    fixed32 code = 1;
+    string message = 2;
+    AccountResult data = 3;
+}
+
+message AccountResult {
+    uint64 id = 1;
+    string uuid = 2;
+    string name = 3;
+    string actualName = 4;
+    uint32 createdByUserId = 5;
+    string department = 6;
+    string email = 7;
+    string phone = 8;
+    string roleId = 9;
+    uint32 isAdmin = 10;
+    uint32 status = 11;
+    int64 createdAt = 12;
+    int64 updatedAt = 13;
+    int32 valid = 14;
+}
