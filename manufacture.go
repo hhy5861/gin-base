@@ -39,5 +39,5 @@ func (m *Manufacture) NewGrpcClient() {
 				fmt.Sprintf("%s:%d", m.config.System.Host, m.config.System.Port),
 			},
 		},
-	}).GrpcDial()
+	}).Dial()
 }
