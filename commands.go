@@ -21,7 +21,7 @@ func (cmd *Commands) Commands() *Commands {
 	cmd.CliApp.Name = "user center server"
 	cmd.CliApp.Usage = "user center"
 	cmd.CliApp.Author = "Mike Huang"
-	cmd.CliApp.Email = "service@heywoof.com"
+	cmd.CliApp.Email = "hhy5861@gmail.com"
 	cmd.CliApp.Version = "1.0.0"
 
 	cmd.CliApp.Flags = []cli.Flag{
