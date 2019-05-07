@@ -4,9 +4,6 @@ set -e
 
 export LOGCAT=true
 
-export GOPATH=$GOPATH:/golang/github
-
-
 APP_NAME=gin-base
 
 BIN_APP=bin/${APP_NAME}

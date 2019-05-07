@@ -30,11 +30,11 @@ func NewUtils() *UserUtils {
 	return u
 }
 
-func (ctl *UserUtils) GetValueUserInfo(ctx *gin.Context) (*models.UserModel, error) {
+func (ctl *UserUtils) GetValueUserInfo(ctx *gin.Context) (*models.AccountModel, error) {
 	body := ctx.Value(ctx.GetHeader("x-auth-token"))
 	if body == nil {
 		return nil, errors.New("get user info is nil")
 	}
 
-	return body.(*models.UserModel), nil
+	return body.(*models.AccountModel), nil
 }

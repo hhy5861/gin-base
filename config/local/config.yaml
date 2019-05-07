@@ -17,13 +17,13 @@ logger:
   stdOut: file #stdout type (file|logstash|redis|kafka)
   debug: true
   redisHost: 127.0.0.1
-  redisPort: 30012
+  redisPort: 6379
   redisDB: 10
 
 mysql:
   dialect: mysql
   host: 127.0.0.1
-  port: 30012
+  port: 3306
   dbname: gin-base
   user: root
   password: blockshine@123
