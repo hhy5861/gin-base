@@ -4,5 +4,9 @@
 - id: "100000"
   translation: "Login failed."
 
+- id: "100001"
+  translation: "create jwt failed."
+
 - id: "100010"
   translation: "get list failed."
+

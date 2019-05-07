@@ -4,5 +4,8 @@
 - id: "100000"
   translation: "登录失败."
 
+- id: "100001"
+  translation: "创建JWT Token失败."
+
 - id: "100010"
   translation: "获取列表失败."

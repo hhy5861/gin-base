@@ -12,3 +12,5 @@ require (
 	google.golang.org/grpc v1.20.1
 	gopkg.in/yaml.v2 v2.2.2
 )
+
+replace github.com/hhy5861/go-common v0.0.1 => ../go-common
