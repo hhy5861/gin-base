@@ -98,3 +98,11 @@ sh build.sh
 ```m
 
 - curl http://127.0.0.1:8080/gin-base/health
+
+## grpc 生成命令
+首先要安全grpc protoc工具。 可以先去 https://developers.google.com/protocol-buffers/
+
+```
+cd proto
+protoc -I ./ ./*.proto --go_out=plugins=grpc:.
+```
