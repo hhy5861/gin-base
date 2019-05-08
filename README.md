@@ -88,9 +88,6 @@ mysql:
 ## 下载并启动
 
 ```
-mkdir ${path}/src/github.com/hhy5861
-export GOPATH=$GOPATH:${path}
-cd ${path}/src/github.com/hhy5861
 git clone git@github.com:hhy5861/gin-base.git
 cd gin-base
 go get
