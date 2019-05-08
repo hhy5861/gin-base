@@ -5,17 +5,22 @@ import (
 	accountProto "github.com/hhy5861/gin-base/proto"
 	accountService "github.com/hhy5861/gin-base/services/account"
 	"github.com/hhy5861/go-common/common"
+	"github.com/hhy5861/go-common/jwt"
 	"golang.org/x/net/context"
 )
 
 type (
 	AccountGrpcService struct {
-		tools *common.Tools
+		tools     *common.Tools
+		JwtConfig *jwt.JwtConfig
 	}
 )
 
-func NewAccountGrpcService() *AccountGrpcService {
-	return &AccountGrpcService{tools: common.NewTools()}
+func NewAccountGrpcService(jwtConfig *jwt.JwtConfig) *AccountGrpcService {
+	return &AccountGrpcService{
+		tools:     common.NewTools(),
+		JwtConfig: jwtConfig,
+	}
 }
 
 func (svc *AccountGrpcService) Login(ctx context.Context, in *accountProto.LoginRequest) (*accountProto.Response, error) {
@@ -26,7 +31,8 @@ func (svc *AccountGrpcService) Login(ctx context.Context, in *accountProto.Login
 
 	account, err := accountService.NewAccountLoginService(
 		accountService.NewAccountService().GetAccountInfoByName,
-		accountService.NewAccountSecurityService().GetAccountSecurityByUuid).Login(formData)
+		accountService.NewAccountSecurityService().GetAccountSecurityByUuid,
+		svc.JwtConfig).Login(formData)
 
 	if err != nil {
 		return &accountProto.Response{Code: 100000, Message: "Login failed.", Data: nil}, err

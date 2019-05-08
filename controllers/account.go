@@ -5,10 +5,8 @@ import (
 	"github.com/hhy5861/gin-base/form"
 	accountProto "github.com/hhy5861/gin-base/proto"
 	accountService "github.com/hhy5861/gin-base/services/account"
-	"github.com/hhy5861/go-common/common"
 	"github.com/hhy5861/go-common/gin_controller"
 	"github.com/hhy5861/go-common/google_grpc"
-	"github.com/hhy5861/go-common/jwt"
 	"golang.org/x/net/context"
 	"time"
 )
@@ -33,24 +31,15 @@ func (ctl *AccountControllers) Login(ctx *gin.Context) {
 
 	account, err := accountService.NewAccountLoginService(
 		accountService.NewAccountService().GetAccountInfoByName,
-		accountService.NewAccountSecurityService().GetAccountSecurityByUuid).Login(formData)
+		accountService.NewAccountSecurityService().GetAccountSecurityByUuid,
+		ctl.JwtConf).Login(formData)
 
 	if err != nil {
 		ctl.ServiceCodeExecption(ctx, 100000, err)
 		return
 	}
 
-	token, err := jwt.NewJwtPackage(ctl.JwtConf).CreateToken(&jwt.StandardClaims{
-		Uuid: account.Uuid,
-	})
-	if err != nil {
-		ctl.ServiceCodeExecption(ctx, 100001, err)
-		return
-	}
-
-	accountMap := common.NewTools().StructToMap(account)
-	accountMap["token"] = token
-	ctl.Response(ctx, accountMap)
+	ctl.Response(ctx, account)
 }
 
 func (ctl *AccountControllers) List(ctx *gin.Context) {

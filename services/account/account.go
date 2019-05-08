@@ -5,6 +5,7 @@ import (
 	"github.com/hhy5861/gin-base/form"
 	"github.com/hhy5861/gin-base/models"
 	"github.com/hhy5861/go-common/common"
+	"github.com/hhy5861/go-common/jwt"
 	"github.com/hhy5861/go-common/mysql"
 )
 
@@ -16,6 +17,12 @@ type (
 	AccountLoginService struct {
 		GetAccount         GetAccountFunc
 		GetAccountSecurity GetAccountSecurityFunc
+		JwtConfig          *jwt.JwtConfig
+	}
+
+	LoginResult struct {
+		models.AccountModel
+		Token string `json:"token"`
 	}
 
 	GetAccountFunc func(formData form.AccountLoginForm) (*models.AccountModel, error)
@@ -32,14 +39,15 @@ func NewAccountService() *AccountService {
 	return &AccountService{tools: common.NewTools()}
 }
 
-func NewAccountLoginService(accountFunc GetAccountFunc, securityFunc GetAccountSecurityFunc) *AccountLoginService {
+func NewAccountLoginService(accountFunc GetAccountFunc, securityFunc GetAccountSecurityFunc, jwtConfig *jwt.JwtConfig) *AccountLoginService {
 	return &AccountLoginService{
 		GetAccount:         accountFunc,
 		GetAccountSecurity: securityFunc,
+		JwtConfig:          jwtConfig,
 	}
 }
 
-func (svc *AccountLoginService) Login(formData form.AccountLoginForm) (*models.AccountModel, error) {
+func (svc *AccountLoginService) Login(formData form.AccountLoginForm) (*LoginResult, error) {
 	accountInfo, err := svc.GetAccount(formData)
 	if err != nil {
 		return nil, err
@@ -63,7 +71,15 @@ func (svc *AccountLoginService) Login(formData form.AccountLoginForm) (*models.A
 		return nil, errors.New(PasswordErrors)
 	}
 
-	return accountInfo, nil
+	token, err := jwt.NewJwtPackage(svc.JwtConfig).CreateToken(&jwt.StandardClaims{
+		Id:   uint(accountInfo.Id),
+		Uuid: accountInfo.Uuid,
+	})
+	if err != nil {
+		return nil, err
+	}
+
+	return &LoginResult{*accountInfo, token}, nil
 }
 
 func (svc *AccountService) GetAccountInfoByName(formData form.AccountLoginForm) (*models.AccountModel, error) {

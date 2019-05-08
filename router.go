@@ -28,5 +28,5 @@ func (svc *Server) Router() {
 }
 
 func (svc *Server) RegisteGrpcRouter(grpcSvc *grpc.Server) {
-	pbAccount.RegisterAccountServer(svc.BaseServer.GrpcServer.Server, grpc_service.NewAccountGrpcService())
+	pbAccount.RegisterAccountServer(svc.BaseServer.GrpcServer.Server, grpc_service.NewAccountGrpcService(svc.Config.Security.Jwt))
 }

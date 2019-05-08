@@ -39,4 +39,5 @@ message AccountResult {
     int64 createdAt = 12;
     int64 updatedAt = 13;
     int32 valid = 14;
+    string token = 15;
 }
